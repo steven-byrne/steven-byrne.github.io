@@ -96,6 +96,16 @@ nav a:hover{color:var(--band-ink)}
 .chart .callout text{fill:#0B1F3A;font:600 11px var(--mono)}
 .chart .note{font-size:.78rem;color:var(--band-muted);margin-top:4px}
 
+.tabs{display:inline-flex;gap:4px;margin-top:12px;padding:3px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);flex-wrap:wrap}
+.tabs button{font:500 .8rem var(--body);color:var(--band-muted);background:transparent;border:0;border-radius:6px;padding:6px 11px;cursor:pointer}
+.tabs button:hover{color:var(--band-ink)}
+.tabs button[aria-selected="true"]{background:var(--chart-blue);color:#06142A}
+.chart .fit{stroke:var(--chart-amber);stroke-width:2;stroke-dasharray:6 4}
+.chart .tdot{fill:var(--chart-blue);stroke:var(--band);stroke-width:1.5}
+.chart .daylbl{fill:var(--band-muted);font:10px var(--mono)}
+.chart .callout text.sub{font-weight:400;fill:#3A4B66}
+.explain{font-size:.8rem;color:var(--band-muted);margin-top:2px;line-height:1.5}
+
 /* Stats strip overlapping the band */
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-top:-44px;position:relative;z-index:2;box-shadow:0 20px 40px -28px rgba(11,31,58,.35)}
 .stat{padding:22px 26px;display:flex;flex-direction:column;gap:4px;min-width:0}
@@ -218,6 +228,11 @@ footer a{color:var(--band-muted)}
         <strong id="chartTitle">Fed-batch culture, 14 days</strong>
         <span class="run"><i></i>Example run</span>
       </div>
+      <div class="tabs" role="tablist" aria-label="Chart view">
+        <button type="button" role="tab" id="tab-growth" aria-selected="true" aria-controls="view-growth">Growth and viability</button>
+        <button type="button" role="tab" id="tab-qp" aria-selected="false" aria-controls="view-qp">Specific productivity</button>
+      </div>
+      <div class="view" id="view-growth" role="tabpanel" aria-labelledby="tab-growth">
       <div class="legend">
         <span><b style="background:var(--chart-blue)"></b>Viable cell density ×10⁶/mL</span>
         <span><b style="background:var(--chart-teal)"></b>Viability %</span>
@@ -252,6 +267,46 @@ footer a{color:var(--band-muted)}
 <g class="callout"><rect x="238.0" y="55.2" width="124" height="22" rx="4"/><text x="300.0" y="70.2" text-anchor="middle">Peak 21.6 · day 9</text></g>
 <text class="axis" x="244" y="254" text-anchor="middle">Culture day</text>
       </svg>
+      </div>
+      <div class="view" id="view-qp" role="tabpanel" aria-labelledby="tab-qp" hidden>
+      <div class="legend">
+        <span><b style="background:var(--chart-blue)"></b>Titre (g/L) against IVCD</span>
+        <span><b style="background:var(--chart-amber)"></b>Linear fit</span>
+      </div>
+      <svg viewBox="0 0 480 262" role="img" aria-label="Example titre plotted against integral viable cell density for days 3 to 14. The points fall close to a straight line whose slope gives a specific productivity of about 21 picograms per cell per day.">
+<line class="grid" x1="48" x2="440" y1="216" y2="216"/><text class="tick" x="40" y="220" text-anchor="end">0</text>
+<line class="grid" x1="48" x2="440" y1="166" y2="166"/><text class="tick" x="40" y="170" text-anchor="end">1</text>
+<line class="grid" x1="48" x2="440" y1="116" y2="116"/><text class="tick" x="40" y="120" text-anchor="end">2</text>
+<line class="grid" x1="48" x2="440" y1="66" y2="66"/><text class="tick" x="40" y="70" text-anchor="end">3</text>
+<line class="grid" x1="48" x2="440" y1="16" y2="16"/><text class="tick" x="40" y="20" text-anchor="end">4</text>
+<text class="tick" x="48.0" y="234" text-anchor="middle">0</text>
+<text class="tick" x="113.3" y="234" text-anchor="middle">30</text>
+<text class="tick" x="178.7" y="234" text-anchor="middle">60</text>
+<text class="tick" x="244.0" y="234" text-anchor="middle">90</text>
+<text class="tick" x="309.3" y="234" text-anchor="middle">120</text>
+<text class="tick" x="374.7" y="234" text-anchor="middle">150</text>
+<text class="tick" x="440.0" y="234" text-anchor="middle">180</text>
+<line class="fit" x1="57.7" y1="215.8" x2="426.4" y2="41.1"/>
+<circle class="tdot" cx="57.7" cy="213.0" r="4"><title>Day 3: IVCD 4, titre 0.06 g/L</title></circle>
+<circle class="tdot" cx="67.5" cy="212.0" r="4"><title>Day 4: IVCD 9, titre 0.08 g/L</title></circle>
+<circle class="tdot" cx="84.2" cy="199.0" r="4"><title>Day 5: IVCD 17, titre 0.34 g/L</title></circle>
+<circle class="tdot" cx="109.5" cy="195.0" r="4"><title>Day 6: IVCD 28, titre 0.42 g/L</title></circle>
+<circle class="tdot" cx="143.7" cy="173.5" r="4"><title>Day 7: IVCD 44, titre 0.85 g/L</title></circle>
+<circle class="tdot" cx="185.1" cy="161.5" r="4"><title>Day 8: IVCD 63, titre 1.09 g/L</title></circle>
+<circle class="tdot" cx="230.8" cy="131.5" r="4"><title>Day 9: IVCD 84, titre 1.69 g/L</title></circle>
+<circle class="tdot" cx="277.4" cy="116.0" r="4"><title>Day 10: IVCD 105, titre 2.00 g/L</title></circle>
+<circle class="tdot" cx="322.1" cy="88.0" r="4"><title>Day 11: IVCD 126, titre 2.56 g/L</title></circle>
+<circle class="tdot" cx="362.7" cy="75.5" r="4"><title>Day 12: IVCD 144, titre 2.81 g/L</title></circle>
+<circle class="tdot" cx="397.6" cy="50.0" r="4"><title>Day 13: IVCD 161, titre 3.32 g/L</title></circle>
+<circle class="tdot" cx="426.4" cy="40.5" r="4"><title>Day 14: IVCD 174, titre 3.51 g/L</title></circle>
+<text class="daylbl" x="65.7" y="227.0">d3</text>
+<text class="daylbl" x="151.7" y="187.5">d7</text>
+<text class="daylbl" x="434.4" y="54.5">d14</text>
+<g class="callout"><rect x="60" y="22" width="232" height="40" rx="5"/><text x="70" y="38">Slope = qP ≈ 21 pg/cell/day</text><text x="70" y="54" class="sub">Linear fit, days 3–14, R² = 0.997</text></g>
+<text class="axis" x="244" y="254" text-anchor="middle">IVCD (×10⁶ cell·day/mL)</text>
+      </svg>
+      <p class="explain">The slope of titre against integral viable cell density (IVCD) is the specific productivity, qP: how much product each cell makes per day.</p>
+      </div>
       <figcaption class="note">Illustrative data, not from a real process.</figcaption>
     </figure>
   </div>
@@ -384,6 +439,12 @@ footer a{color:var(--band-muted)}
       navigator.clipboard.writeText(t).then(function(){status.textContent='Email address copied.';},function(){selectIt();status.textContent='Address selected. Press Ctrl+C or Cmd+C to copy.';});
     }else{selectIt();status.textContent='Address selected. Press Ctrl+C or Cmd+C to copy.';}
   });
+})();
+(function(){
+  var tabs=document.querySelectorAll('.tabs [role="tab"]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(u){var on=u===t;u.setAttribute('aria-selected',on?'true':'false');document.getElementById(u.getAttribute('aria-controls')).hidden=!on;});
+  });});
 })();
 </script>
 
