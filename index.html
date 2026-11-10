@@ -103,6 +103,11 @@ nav a:hover{color:var(--band-ink)}
 .chart .fit{stroke:var(--chart-amber);stroke-width:2;stroke-dasharray:6 4}
 .chart .tdot{fill:var(--chart-blue);stroke:var(--band);stroke-width:1.5}
 .chart .daylbl{fill:var(--band-muted);font:10px var(--mono)}
+.chart .cool{fill:var(--chart-teal);opacity:.05}
+.chart .shift{stroke:var(--band-ink);stroke-width:1.3;opacity:.55}
+.chart .shiftlbl{fill:var(--band-ink);font:600 10px var(--mono);opacity:.85}
+.chart .fit.pre{stroke:var(--chart-teal)}
+.chart .tdot.pre{fill:var(--chart-teal)}
 .chart .callout text.sub{font-weight:400;fill:#3A4B66}
 .explain{font-size:.8rem;color:var(--band-muted);margin-top:2px;line-height:1.5}
 
@@ -237,8 +242,9 @@ footer a{color:var(--band-muted)}
         <span><b style="background:var(--chart-blue)"></b>Viable cell density ×10⁶/mL</span>
         <span><b style="background:var(--chart-teal)"></b>Viability %</span>
         <span><b style="background:var(--chart-amber)"></b>Bolus feed</span>
+        <span><b style="background:var(--band-ink)"></b>Temperature shift</span>
       </div>
-      <svg viewBox="0 0 480 262" role="img" aria-label="Example fed-batch culture: viable cell density rises from 0.5 to a peak of 21.6 million cells per mL on day 9 while viability falls from 98% to 68% by day 14. Bolus feeds on days 3, 5, 7, 9 and 11.">
+      <svg viewBox="0 0 480 262" role="img" aria-label="Example fed-batch culture with a temperature shift from 37 to 33 degrees C on day 5. Viable cell density rises from 0.5 to a peak of 17.8 million cells per mL on day 10, and viability stays above 84% to day 14. Bolus feeds on days 3, 5, 7, 9 and 11.">
         <defs><linearGradient id="vcdFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6EA0FF" stop-opacity=".45"/><stop offset="1" stop-color="#6EA0FF" stop-opacity="0"/></linearGradient></defs>
 <line class="grid" x1="48" x2="440" y1="216" y2="216"/><text class="tick" x="40" y="220" text-anchor="end">0</text><text class="tick tv" x="448" y="220">0%</text>
 <line class="grid" x1="48" x2="440" y1="176" y2="176"/><text class="tick" x="40" y="180" text-anchor="end">5</text><text class="tick tv" x="448" y="170">25%</text>
@@ -259,26 +265,30 @@ footer a{color:var(--band-muted)}
 <line class="feed" x1="244.0" x2="244.0" y1="16" y2="216"/>
 <line class="feed" x1="300.0" x2="300.0" y1="16" y2="216"/>
 <line class="feed" x1="356.0" x2="356.0" y1="16" y2="216"/>
-<path class="area" d="M48,216 L48.0,212.0 L76.0,208.8 L104.0,202.4 L132.0,190.4 L160.0,169.6 L188.0,140.0 L216.0,105.6 L244.0,75.2 L272.0,52.8 L300.0,43.2 L328.0,46.4 L356.0,57.6 L384.0,76.0 L412.0,99.2 L440.0,121.6 L440.0,216 Z"/>
-<polyline class="via" points="48.0,20.0 76.0,20.0 104.0,18.0 132.0,20.0 160.0,20.0 188.0,22.0 216.0,22.0 244.0,24.0 272.0,26.0 300.0,30.0 328.0,36.0 356.0,44.0 384.0,54.0 412.0,66.0 440.0,80.0"/>
-<polyline class="line" points="48.0,212.0 76.0,208.8 104.0,202.4 132.0,190.4 160.0,169.6 188.0,140.0 216.0,105.6 244.0,75.2 272.0,52.8 300.0,43.2 328.0,46.4 356.0,57.6 384.0,76.0 412.0,99.2 440.0,121.6"/>
-<circle class="dot" cx="48.0" cy="212.0" r="2.8"/><circle class="dot" cx="76.0" cy="208.8" r="2.8"/><circle class="dot" cx="104.0" cy="202.4" r="2.8"/><circle class="dot" cx="132.0" cy="190.4" r="2.8"/><circle class="dot" cx="160.0" cy="169.6" r="2.8"/><circle class="dot" cx="188.0" cy="140.0" r="2.8"/><circle class="dot" cx="216.0" cy="105.6" r="2.8"/><circle class="dot" cx="244.0" cy="75.2" r="2.8"/><circle class="dot" cx="272.0" cy="52.8" r="2.8"/><circle class="dot" cx="300.0" cy="43.2" r="2.8"/><circle class="dot" cx="328.0" cy="46.4" r="2.8"/><circle class="dot" cx="356.0" cy="57.6" r="2.8"/><circle class="dot" cx="384.0" cy="76.0" r="2.8"/><circle class="dot" cx="412.0" cy="99.2" r="2.8"/><circle class="dot" cx="440.0" cy="121.6" r="2.8"/>
-<circle class="pulse" cx="300.0" cy="43.2" r="6"/><circle class="peak" cx="300.0" cy="43.2" r="5"/>
-<g class="callout"><rect x="238.0" y="55.2" width="124" height="22" rx="4"/><text x="300.0" y="70.2" text-anchor="middle">Peak 21.6 · day 9</text></g>
+<rect class="cool" x="188.0" y="16" width="252.0" height="200"/>
+<line class="shift" x1="188.0" x2="188.0" y1="16" y2="216"/><text class="shiftlbl" x="194.0" y="206">37 → 33 °C</text>
+<path class="area" d="M48,216 L48.0,212.0 L76.0,208.8 L104.0,202.4 L132.0,190.4 L160.0,169.6 L188.0,140.0 L216.0,118.4 L244.0,100.0 L272.0,86.4 L300.0,77.6 L328.0,73.6 L356.0,76.0 L384.0,83.2 L412.0,93.6 L440.0,105.6 L440.0,216 Z"/>
+<polyline class="via" points="48.0,20.0 76.0,20.0 104.0,18.0 132.0,20.0 160.0,20.0 188.0,22.0 216.0,22.0 244.0,22.0 272.0,24.0 300.0,26.0 328.0,28.0 356.0,32.0 384.0,36.0 412.0,42.0 440.0,48.0"/>
+<polyline class="line" points="48.0,212.0 76.0,208.8 104.0,202.4 132.0,190.4 160.0,169.6 188.0,140.0 216.0,118.4 244.0,100.0 272.0,86.4 300.0,77.6 328.0,73.6 356.0,76.0 384.0,83.2 412.0,93.6 440.0,105.6"/>
+<circle class="dot" cx="48.0" cy="212.0" r="2.8"/><circle class="dot" cx="76.0" cy="208.8" r="2.8"/><circle class="dot" cx="104.0" cy="202.4" r="2.8"/><circle class="dot" cx="132.0" cy="190.4" r="2.8"/><circle class="dot" cx="160.0" cy="169.6" r="2.8"/><circle class="dot" cx="188.0" cy="140.0" r="2.8"/><circle class="dot" cx="216.0" cy="118.4" r="2.8"/><circle class="dot" cx="244.0" cy="100.0" r="2.8"/><circle class="dot" cx="272.0" cy="86.4" r="2.8"/><circle class="dot" cx="300.0" cy="77.6" r="2.8"/><circle class="dot" cx="328.0" cy="73.6" r="2.8"/><circle class="dot" cx="356.0" cy="76.0" r="2.8"/><circle class="dot" cx="384.0" cy="83.2" r="2.8"/><circle class="dot" cx="412.0" cy="93.6" r="2.8"/><circle class="dot" cx="440.0" cy="105.6" r="2.8"/>
+<circle class="pulse" cx="328.0" cy="73.6" r="6"/><circle class="peak" cx="328.0" cy="73.6" r="5"/>
+<g class="callout"><rect x="266.0" y="85.6" width="124" height="22" rx="4"/><text x="328.0" y="100.6" text-anchor="middle">Peak 17.8 · day 10</text></g>
 <text class="axis" x="244" y="254" text-anchor="middle">Culture day</text>
       </svg>
       </div>
       <div class="view" id="view-qp" role="tabpanel" aria-labelledby="tab-qp" hidden>
       <div class="legend">
-        <span><b style="background:var(--chart-blue)"></b>Titre (g/L) against IVCD</span>
-        <span><b style="background:var(--chart-amber)"></b>Linear fit</span>
+        <span><b style="background:var(--chart-teal)"></b>Titre at 37 °C</span>
+        <span><b style="background:var(--chart-blue)"></b>Titre at 33 °C</span>
+        <span><b style="background:var(--chart-amber)"></b>Linear fits</span>
       </div>
-      <svg viewBox="0 0 480 262" role="img" aria-label="Example titre plotted against integral viable cell density for days 3 to 14. The points fall close to a straight line whose slope gives a specific productivity of about 21 picograms per cell per day.">
-<line class="grid" x1="48" x2="440" y1="216" y2="216"/><text class="tick" x="40" y="220" text-anchor="end">0</text>
-<line class="grid" x1="48" x2="440" y1="166" y2="166"/><text class="tick" x="40" y="170" text-anchor="end">1</text>
-<line class="grid" x1="48" x2="440" y1="116" y2="116"/><text class="tick" x="40" y="120" text-anchor="end">2</text>
-<line class="grid" x1="48" x2="440" y1="66" y2="66"/><text class="tick" x="40" y="70" text-anchor="end">3</text>
-<line class="grid" x1="48" x2="440" y1="16" y2="16"/><text class="tick" x="40" y="20" text-anchor="end">4</text>
+      <svg viewBox="0 0 480 262" role="img" aria-label="Example titre plotted against integral viable cell density. Before the day 5 temperature shift the slope gives a specific productivity of about 15 picograms per cell per day; after the shift it rises to about 31. Final titre is 4.6 grams per litre.">
+<line class="grid" x1="48" x2="440" y1="216.0" y2="216.0"/><text class="tick" x="40" y="220.0" text-anchor="end">0</text>
+<line class="grid" x1="48" x2="440" y1="176.0" y2="176.0"/><text class="tick" x="40" y="180.0" text-anchor="end">1</text>
+<line class="grid" x1="48" x2="440" y1="136.0" y2="136.0"/><text class="tick" x="40" y="140.0" text-anchor="end">2</text>
+<line class="grid" x1="48" x2="440" y1="96.0" y2="96.0"/><text class="tick" x="40" y="100.0" text-anchor="end">3</text>
+<line class="grid" x1="48" x2="440" y1="56.0" y2="56.0"/><text class="tick" x="40" y="60.0" text-anchor="end">4</text>
+<line class="grid" x1="48" x2="440" y1="16.0" y2="16.0"/><text class="tick" x="40" y="20.0" text-anchor="end">5</text>
 <text class="tick" x="48.0" y="234" text-anchor="middle">0</text>
 <text class="tick" x="113.3" y="234" text-anchor="middle">30</text>
 <text class="tick" x="178.7" y="234" text-anchor="middle">60</text>
@@ -286,26 +296,28 @@ footer a{color:var(--band-muted)}
 <text class="tick" x="309.3" y="234" text-anchor="middle">120</text>
 <text class="tick" x="374.7" y="234" text-anchor="middle">150</text>
 <text class="tick" x="440.0" y="234" text-anchor="middle">180</text>
-<line class="fit" x1="57.7" y1="215.8" x2="426.4" y2="41.1"/>
-<circle class="tdot" cx="57.7" cy="213.0" r="4"><title>Day 3: IVCD 4, titre 0.06 g/L</title></circle>
-<circle class="tdot" cx="67.5" cy="212.0" r="4"><title>Day 4: IVCD 9, titre 0.08 g/L</title></circle>
-<circle class="tdot" cx="84.2" cy="199.0" r="4"><title>Day 5: IVCD 17, titre 0.34 g/L</title></circle>
-<circle class="tdot" cx="109.5" cy="195.0" r="4"><title>Day 6: IVCD 28, titre 0.42 g/L</title></circle>
-<circle class="tdot" cx="143.7" cy="173.5" r="4"><title>Day 7: IVCD 44, titre 0.85 g/L</title></circle>
-<circle class="tdot" cx="185.1" cy="161.5" r="4"><title>Day 8: IVCD 63, titre 1.09 g/L</title></circle>
-<circle class="tdot" cx="230.8" cy="131.5" r="4"><title>Day 9: IVCD 84, titre 1.69 g/L</title></circle>
-<circle class="tdot" cx="277.4" cy="116.0" r="4"><title>Day 10: IVCD 105, titre 2.00 g/L</title></circle>
-<circle class="tdot" cx="322.1" cy="88.0" r="4"><title>Day 11: IVCD 126, titre 2.56 g/L</title></circle>
-<circle class="tdot" cx="362.7" cy="75.5" r="4"><title>Day 12: IVCD 144, titre 2.81 g/L</title></circle>
-<circle class="tdot" cx="397.6" cy="50.0" r="4"><title>Day 13: IVCD 161, titre 3.32 g/L</title></circle>
-<circle class="tdot" cx="426.4" cy="40.5" r="4"><title>Day 14: IVCD 174, titre 3.51 g/L</title></circle>
-<text class="daylbl" x="65.7" y="227.0">d3</text>
-<text class="daylbl" x="151.7" y="187.5">d7</text>
-<text class="daylbl" x="434.4" y="54.5">d14</text>
-<g class="callout"><rect x="60" y="22" width="232" height="40" rx="5"/><text x="70" y="38">Slope = qP ≈ 21 pg/cell/day</text><text x="70" y="54" class="sub">Linear fit, days 3–14, R² = 0.997</text></g>
+<line class="shift" x1="84.2" x2="84.2" y1="16" y2="216"/><text class="shiftlbl" x="90.2" y="104">Shift to 33 °C (day 5)</text>
+<line class="fit pre" x1="52.4" y1="215.2" x2="84.2" y2="206.4"/>
+<line class="fit" x1="84.2" y1="207.7" x2="387.0" y2="36.8"/>
+<circle class="tdot pre" cx="52.4" cy="215.1" r="4"><title>Day 2: IVCD 2, titre 0.02 g/L</title></circle>
+<circle class="tdot pre" cx="57.7" cy="214.0" r="4"><title>Day 3: IVCD 4, titre 0.05 g/L</title></circle>
+<circle class="tdot pre" cx="67.5" cy="210.7" r="4"><title>Day 4: IVCD 9, titre 0.13 g/L</title></circle>
+<circle class="tdot pre" cx="84.2" cy="206.5" r="4"><title>Day 5: IVCD 17, titre 0.24 g/L</title></circle>
+<circle class="tdot" cx="107.8" cy="192.0" r="4"><title>Day 6: IVCD 27, titre 0.60 g/L</title></circle>
+<circle class="tdot" cx="136.9" cy="180.8" r="4"><title>Day 7: IVCD 41, titre 0.88 g/L</title></circle>
+<circle class="tdot" cx="170.3" cy="157.2" r="4"><title>Day 8: IVCD 56, titre 1.47 g/L</title></circle>
+<circle class="tdot" cx="206.8" cy="142.0" r="4"><title>Day 9: IVCD 73, titre 1.85 g/L</title></circle>
+<circle class="tdot" cx="245.0" cy="115.2" r="4"><title>Day 10: IVCD 90, titre 2.52 g/L</title></circle>
+<circle class="tdot" cx="283.4" cy="99.2" r="4"><title>Day 11: IVCD 108, titre 2.92 g/L</title></circle>
+<circle class="tdot" cx="320.5" cy="72.0" r="4"><title>Day 12: IVCD 125, titre 3.60 g/L</title></circle>
+<circle class="tdot" cx="355.3" cy="57.2" r="4"><title>Day 13: IVCD 141, titre 3.97 g/L</title></circle>
+<circle class="tdot" cx="387.0" cy="33.6" r="4"><title>Day 14: IVCD 156, titre 4.56 g/L</title></circle>
+<text class="daylbl" x="178.3" y="171.2">d8</text>
+<text class="daylbl" x="395.0" y="47.6">d14</text>
+<g class="callout"><rect x="60" y="22" width="236" height="58" rx="5"/><text x="70" y="40">qP before shift ≈ 15 pg/cell/day</text><text x="70" y="56">qP after shift ≈ 31 pg/cell/day</text><text x="70" y="72" class="sub">Slopes of linear fits, R² > 0.99</text></g>
 <text class="axis" x="244" y="254" text-anchor="middle">IVCD (×10⁶ cell·day/mL)</text>
       </svg>
-      <p class="explain">The slope of titre against integral viable cell density (IVCD) is the specific productivity, qP: how much product each cell makes per day.</p>
+      <p class="explain">The slope of titre against integral viable cell density (IVCD) is the specific productivity, qP: how much product each cell makes per day. After the shift to 33 °C the cells grow more slowly, but each one makes about twice as much product.</p>
       </div>
       <figcaption class="note">Illustrative data, not from a real process.</figcaption>
     </figure>
