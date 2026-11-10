@@ -115,7 +115,8 @@ section h2{font-size:clamp(1.75rem,3.4vw,2.4rem);font-weight:800;letter-spacing:
 .svc:nth-child(2){--c:var(--teal);--cs:var(--teal-soft)}
 .svc:nth-child(3){--c:var(--violet);--cs:var(--violet-soft)}
 .svc:nth-child(4){--c:var(--amber);--cs:var(--amber-soft)}
-.svc.wide{grid-column:1/-1;--c:var(--blue);--cs:var(--blue-soft)}
+.svc:nth-child(5){--c:var(--blue);--cs:var(--blue-soft)}
+.svc:nth-child(6){--c:var(--teal);--cs:var(--teal-soft)}
 .svc:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 18px 36px -24px rgba(11,31,58,.45)}
 .icon{width:48px;height:48px;border-radius:12px;background:var(--cs);color:var(--c);display:grid;place-items:center}
 .icon svg{width:26px;height:26px}
@@ -268,20 +269,20 @@ footer a{color:var(--band-muted)}
   <section id="services">
     <div class="wrap">
       <p class="eyebrow">Services</p>
-      <h2>Five ways I can help an upstream team</h2>
+      <h2>Six ways I can help an upstream team</h2>
       <p class="intro">Each piece of work is built for your instruments, your file formats and the people who will use the output.</p>
       <div class="services">
         <article class="svc">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v4M14 3v4"/><rect x="6" y="7" width="12" height="14" rx="3"/><path d="M6 13c2-1.5 4 1.5 6 0s4 1.5 6 0"/><path d="M12 10v8"/></svg></div>
           <h3>Instrument data pipelines</h3>
-          <p>Scripts that collect exports from your bioreactors, cell counters and analysers, check them for gaps and errors, and combine them into one tidy dataset per experiment. Outputs include summary Excel files, standard plots and files ready for JMP.</p>
+          <p>Scripts that collect exports from your bioreactors, cell counters and analysers, check them for gaps and errors, and combine them into one tidy dataset per experiment. Missing values, outliers and unit mismatches are flagged, not silently dropped. Outputs include summary Excel files, standard plots and files ready for JMP.</p>
           <div class="chips"><span>Bioreactors</span><span>Automated cell counters</span><span>Metabolite analysers</span><span>Offline samples</span></div>
         </article>
         <article class="svc">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 14l3-3 3 2 4-5"/><path d="M8 21h8"/></svg></div>
           <h3>Dashboards and self-serve data</h3>
-          <p>Dashboards that let scientists and managers compare runs, clones and conditions themselves. Where your platform supports it, I can set up plain-English querying so people can ask questions of the data directly.</p>
-          <div class="chips"><span>Databricks</span><span>R Shiny</span><span>Python and Plotly</span></div>
+          <p>Dashboards that let scientists and managers compare runs, clones and conditions themselves. Where your platform supports it, I can set up plain-English querying so people can ask questions of the data directly. Charts are built to be read correctly at a glance, with colour-blind-safe palettes.</p>
+          <div class="chips"><span>Databricks</span><span>R Shiny</span><span>ggplot2</span><span>Python and Plotly</span></div>
         </article>
         <article class="svc">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h3l-1-6zM10 20h4l-1-9h-2zM17 20h4l-1-12h-2z"/><path d="M5 10l5-3 5 1 5-4"/></svg></div>
@@ -295,11 +296,17 @@ footer a{color:var(--band-muted)}
           <p>A new tool only helps if people use it. I run hands-on sessions for scientists and managers, write short guides in plain language, and hand over everything so your team can maintain it.</p>
           <div class="chips"><span>Workshops</span><span>User guides</span><span>Handover documentation</span></div>
         </article>
-        <article class="svc wide">
+        <article class="svc">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="1.4"/><circle cx="9.5" cy="5.5" r="1.4"/><circle cx="5" cy="5" r="1.4"/><circle cx="16" cy="15" r="1.4"/><circle cx="18.5" cy="18" r="1.4"/><circle cx="14.5" cy="18.5" r="1.4"/><circle cx="19" cy="6" r="1.4"/><path d="M3 21h18M3 3v18"/></svg></div>
           <h3>Pattern finding and machine learning</h3>
           <p>Group runs, clones and conditions that behave alike, flag runs that don't fit the pattern, and find which process settings best separate good outcomes from poor ones. I use established methods, check how well each model holds up, and report the results in plain language with the plots that support them.</p>
           <div class="chips"><span>Clustering (k-means, DBSCAN)</span><span>Outlier detection</span><span>Decision trees and KNN</span><span>Model evaluation</span></div>
+        </article>
+        <article class="svc">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M3 18c3 0 4-11 9-11s6 11 9 11"/><path d="M12 7v13"/><path d="M8 13v7M16 13v7"/></svg></div>
+          <h3>Statistics and experimental design</h3>
+          <p>Compare clones, media and conditions with the right statistical test, put confidence intervals on the differences that matter, and plan experiments so they have enough runs to give a clear answer before the bioreactors are booked.</p>
+          <div class="chips"><span>Hypothesis tests and ANOVA</span><span>Confidence intervals</span><span>Regression</span><span>Experimental design and power</span></div>
         </article>
       </div>
     </div>
@@ -331,7 +338,7 @@ footer a{color:var(--band-muted)}
         <dl class="facts">
           <div><dt>Experience</dt><dd>20 years in upstream cell culture development</dd></div>
           <div><dt>Instruments</dt><dd>Micro-bioreactors, automated cell counters, metabolite analysers, rocking bioreactors, robotic liquid handlers</dd></div>
-          <div><dt>Tools</dt><dd>Python (pandas, scikit-learn), R and Shiny, SQL, Databricks, JMP</dd></div>
+          <div><dt>Tools</dt><dd>Python (pandas, scikit-learn, Plotly), R (tidyverse, ggplot2, Shiny), SQL, Databricks, JMP</dd></div>
           <div><dt>Study</dt><dd>Graduate Certificate in Data Science, RMIT University. Studying a Master of Business Analytics and AI Strategy.</dd></div>
           <div><dt>Patent</dt><dd>Co-inventor, US 12,209,261 B2</dd></div>
         </dl>
