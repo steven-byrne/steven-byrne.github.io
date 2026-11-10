@@ -115,6 +115,7 @@ section h2{font-size:clamp(1.75rem,3.4vw,2.4rem);font-weight:800;letter-spacing:
 .svc:nth-child(2){--c:var(--teal);--cs:var(--teal-soft)}
 .svc:nth-child(3){--c:var(--violet);--cs:var(--violet-soft)}
 .svc:nth-child(4){--c:var(--amber);--cs:var(--amber-soft)}
+.svc.wide{grid-column:1/-1;--c:var(--blue);--cs:var(--blue-soft)}
 .svc:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 18px 36px -24px rgba(11,31,58,.45)}
 .icon{width:48px;height:48px;border-radius:12px;background:var(--cs);color:var(--c);display:grid;place-items:center}
 .icon svg{width:26px;height:26px}
@@ -267,7 +268,7 @@ footer a{color:var(--band-muted)}
   <section id="services">
     <div class="wrap">
       <p class="eyebrow">Services</p>
-      <h2>Four ways I can help an upstream team</h2>
+      <h2>Five ways I can help an upstream team</h2>
       <p class="intro">Each piece of work is built for your instruments, your file formats and the people who will use the output.</p>
       <div class="services">
         <article class="svc">
@@ -293,6 +294,12 @@ footer a{color:var(--band-muted)}
           <h3>Training and adoption</h3>
           <p>A new tool only helps if people use it. I run hands-on sessions for scientists and managers, write short guides in plain language, and hand over everything so your team can maintain it.</p>
           <div class="chips"><span>Workshops</span><span>User guides</span><span>Handover documentation</span></div>
+        </article>
+        <article class="svc wide">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="1.4"/><circle cx="9.5" cy="5.5" r="1.4"/><circle cx="5" cy="5" r="1.4"/><circle cx="16" cy="15" r="1.4"/><circle cx="18.5" cy="18" r="1.4"/><circle cx="14.5" cy="18.5" r="1.4"/><circle cx="19" cy="6" r="1.4"/><path d="M3 21h18M3 3v18"/></svg></div>
+          <h3>Pattern finding and machine learning</h3>
+          <p>Group runs, clones and conditions that behave alike, flag runs that don't fit the pattern, and find which process settings best separate good outcomes from poor ones. I use established methods, check how well each model holds up, and report the results in plain language with the plots that support them.</p>
+          <div class="chips"><span>Clustering (k-means, DBSCAN)</span><span>Outlier detection</span><span>Decision trees and KNN</span><span>Model evaluation</span></div>
         </article>
       </div>
     </div>
@@ -324,7 +331,7 @@ footer a{color:var(--band-muted)}
         <dl class="facts">
           <div><dt>Experience</dt><dd>20 years in upstream cell culture development</dd></div>
           <div><dt>Instruments</dt><dd>Micro-bioreactors, automated cell counters, metabolite analysers, rocking bioreactors, robotic liquid handlers</dd></div>
-          <div><dt>Tools</dt><dd>Python, R and Shiny, SQL, Databricks, JMP</dd></div>
+          <div><dt>Tools</dt><dd>Python (pandas, scikit-learn), R and Shiny, SQL, Databricks, JMP</dd></div>
           <div><dt>Study</dt><dd>Graduate Certificate in Data Science, RMIT University. Studying a Master of Business Analytics and AI Strategy.</dd></div>
           <div><dt>Patent</dt><dd>Co-inventor, US 12,209,261 B2</dd></div>
         </dl>
